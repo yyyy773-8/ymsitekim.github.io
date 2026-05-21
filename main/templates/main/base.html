@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Мой Город{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="{% static 'main/img/logo.png' %}" alt="Logo" class="logo-img">
+                <span class="logo-text">Городской<span>Портал</span></span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Главная</a>
+                <a href="#" class="nav-link">О нас</a>
+                <a href="#" class="nav-link">Услуги</a>
+                <a href="#" class="nav-link">Контакты</a>
+            </nav>
+            <button class="btn btn-primary">Войти</button>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ БЛОК -->
+    <main class="main">
+        <div class="container main-grid">
+            <!-- ЛЕВАЯ/ЦЕНТРАЛЬНАЯ ЧАСТЬ (Контент) -->
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <!-- ПРАВАЯ БОКОВАЯ ПАНЕЛЬ (Формы + Инфо) -->
+            <aside class="sidebar">
+                <!-- Форма подписки -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">📧 Подписка</h3>
+                    <p>Будьте в курсе новостей</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Ваш Email" class="form-input" required>
+                        <button type="submit" class="btn btn-accent">Подписаться</button>
+                    </form>
+                </div>
+
+                <!-- Блок Популярное -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">⭐ Популярное</h3>
+                    <ul class="popular-list">
+                        <li><a href="#">Как выбрать квартиру в 2025</a><span>👁️ 234</span></li>
+                        <li><a href="#">Топ 5 ресторанов</a><span>👁️ 189</span></li>
+                        <li><a href="#">Новый парк открыт</a><span>👁️ 145</span></li>
+                    </ul>
+                </div>
+
+                <!-- Рекламный блок -->
+                <div class="sidebar-card promo">
+                    <p>🔥 Спецпредложение</p>
+                    <button class="btn btn-outline">Узнать больше</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo">🏙️ Городской Портал</div>
+                <p>Новости, статьи и афиша вашего города.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О проекте</a></li>
+                    <li><a href="#">Политика</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p>📞 +7 (999) 123-45-67</p>
+                <p>✉️ info@gorod.ru</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Городской Портал. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

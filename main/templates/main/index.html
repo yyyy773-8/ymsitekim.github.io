@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Главная - Городской Портал{% endblock %}
+
+{% block content %}
+    <div class="welcome-block">
+        <h1>Добро пожаловать в городскую жизнь!</h1>
+        <p>Самые свежие новости, аналитика и уютные статьи.</p>
+        <button class="btn btn-primary">Смотреть подборку</button>
+    </div>
+
+    {% for article in articles %}
+    <article class="article-card">
+        <h2>{{ article.title }}</h2>
+        <div class="article-meta">{{ article.created_at|date:"d E Y" }}</div>
+        <p>{{ article.content|truncatewords:30 }}</p>
+        <div class="article-buttons">
+            <a href="#" class="btn btn-outline">Читать далее →</a>
+            <button class="like-btn">❤️ 12</button>
+        </div>
+    </article>
+    {% empty %}
+        <p>Пока нет статей. Зайдите в админку и создайте первую!</p>
+    {% endfor %}
+
+    <div class="pagination">
+        <button class="btn btn-secondary">← Предыдущая</button>
+        <span class="page-num">1</span>
+        <button class="btn btn-secondary">Следующая →</button>
+    </div>
+{% endblock %}
